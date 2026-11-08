@@ -8,6 +8,10 @@ Ok enough of this AI slop. idk I was working on a different project Yohaku and I
 the colors I picked are pretty nice, I also tried to keep everything sharp and clean blending in together without looking like dislocated components from windows' 2023 file browser with some color applied to it - which is unironically exactly what AI gave me, so this is heavily finetuned by me to make it actually nice?
 Ok now you can read more AI slop about the theme for details that I absolutely did not bother to take the time to write myself. Oh and also for the different themes youre gonna wanna install Style Settings plugin for that.
 
+## Screenshot
+
+![Oyaishi theme preview](screenshots/2026-11-09_05-22-33_full.png)
+
 ## Features
 
 - A minimalist editorial interface with integrated panes and tabs.

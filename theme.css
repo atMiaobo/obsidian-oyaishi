@@ -1,5 +1,5 @@
 /*
- * Oyaishi · 1.2.1
+ * Oyaishi · 1.2.2
  * 大谷石 · An understated, architectural writing environment.
  * A matte, editorial workspace. No remote assets or runtime scripts.
  * Sections: settings / foundations / palettes / semantic colors / workspace /
@@ -987,7 +987,6 @@ body {
 .markdown-rendered :is(a, .internal-link),
 .markdown-source-view .cm-link {
   text-underline-offset: 0.18em;
-  text-decoration-thickness: 1px;
 }
 
 .markdown-rendered blockquote {
@@ -1059,7 +1058,7 @@ body {
   font-size: 0.85em;
 }
 
-.markdown-rendered :is(.math, mjx-container),
+.markdown-rendered :is(.math, .MathJax),
 .markdown-source-view .math {
   color: var(--text-normal);
 }
@@ -1385,14 +1384,14 @@ body.is-mobile {
   /* Match palette specificity so printed colors reset in every variant. */
   body[class].theme-dark,
   body[class].theme-light {
-    --background-primary: white;
-    --background-primary-alt: white;
+    --background-primary: #FFFFFF;
+    --background-primary-alt: #FFFFFF;
     --background-secondary: #F4F1E9;
     --text-normal: #30322F;
     --text-muted: #606259;
     --text-faint: #606259;
-    --qs-bg: white;
-    --qs-neutral: white;
+    --qs-bg: #FFFFFF;
+    --qs-neutral: #FFFFFF;
     --qs-panel: #F4F1E9;
     --qs-border: #D5D0C5;
     --qs-fg: #30322F;
@@ -1421,6 +1420,6 @@ body.is-mobile {
 
   .markdown-rendered pre,
   .markdown-rendered .callout {
-    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
