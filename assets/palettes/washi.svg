@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="title description">
+  <title id="title">Washi palette</title>
+  <desc id="description">Washi, light palette. Base #F4F1E9, Surface #E9E5DC, Ink #30322F, Muted #5F5E56, Accent #8A7B67, Deep #5D5141.</desc>
+  <foreignObject x="0" y="0" width="400" height="212">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        * { box-sizing: border-box; }
+        .card { width: 400px; height: 212px; padding: 24px; border: 1px solid #D5D0C5; border-radius: 4px; background: #F3F1EC; color: #30322F; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+        .eyebrow { color: #5F5E56; font-size: 10px; line-height: 12px; letter-spacing: 1.8px; text-transform: uppercase; }
+        h2 { margin: 6px 0 0; font-size: 22px; line-height: 28px; font-weight: 500; letter-spacing: -0.5px; }
+        .swatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
+        .color { height: 50px; border-radius: 2px; border: 1px solid #D5D0C5; }
+        .label { margin-top: 8px; font-size: 10px; line-height: 12px; }
+        .hex { margin-top: 3px; color: #5F5E56; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; line-height: 12px; }
+      </style>
+      <div class="card">
+        <div class="eyebrow">02 / light</div>
+        <h2>Washi</h2>
+        <div class="swatches">
+          <div class="swatch"><div class="color" style="background: #F4F1E9"></div><div class="label">Base</div><div class="hex">#F4F1E9</div></div>
+          <div class="swatch"><div class="color" style="background: #E9E5DC"></div><div class="label">Surface</div><div class="hex">#E9E5DC</div></div>
+          <div class="swatch"><div class="color" style="background: #30322F"></div><div class="label">Ink</div><div class="hex">#30322F</div></div>
+          <div class="swatch"><div class="color" style="background: #5F5E56"></div><div class="label">Muted</div><div class="hex">#5F5E56</div></div>
+          <div class="swatch"><div class="color" style="background: #8A7B67"></div><div class="label">Accent</div><div class="hex">#8A7B67</div></div>
+          <div class="swatch"><div class="color" style="background: #5D5141"></div><div class="label">Deep</div><div class="hex">#5D5141</div></div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>
