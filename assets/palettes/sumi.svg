@@ -1,30 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="title description">
   <title id="title">Sumi palette</title>
   <desc id="description">Sumi, dark palette. Base #171A19, Surface #222624, Ink #D9DBD5, Muted #929992, Accent #7E8F87, Deep #51655A.</desc>
-  <foreignObject x="0" y="0" width="400" height="212">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <style>
-        * { box-sizing: border-box; }
-        .card { width: 400px; height: 212px; padding: 24px; border: 1px solid #343936; border-radius: 4px; background: #181A19; color: #D9DBD5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-        .eyebrow { color: #929992; font-size: 10px; line-height: 12px; letter-spacing: 1.8px; text-transform: uppercase; }
-        h2 { margin: 6px 0 0; font-size: 22px; line-height: 28px; font-weight: 500; letter-spacing: -0.5px; }
-        .swatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
-        .color { height: 50px; border-radius: 2px; border: 1px solid #343936; }
-        .label { margin-top: 8px; font-size: 10px; line-height: 12px; }
-        .hex { margin-top: 3px; color: #929992; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; line-height: 12px; }
-      </style>
-      <div class="card">
-        <div class="eyebrow">01 / dark</div>
-        <h2>Sumi</h2>
-        <div class="swatches">
-          <div class="swatch"><div class="color" style="background: #171A19"></div><div class="label">Base</div><div class="hex">#171A19</div></div>
-          <div class="swatch"><div class="color" style="background: #222624"></div><div class="label">Surface</div><div class="hex">#222624</div></div>
-          <div class="swatch"><div class="color" style="background: #D9DBD5"></div><div class="label">Ink</div><div class="hex">#D9DBD5</div></div>
-          <div class="swatch"><div class="color" style="background: #929992"></div><div class="label">Muted</div><div class="hex">#929992</div></div>
-          <div class="swatch"><div class="color" style="background: #7E8F87"></div><div class="label">Accent</div><div class="hex">#7E8F87</div></div>
-          <div class="swatch"><div class="color" style="background: #51655A"></div><div class="label">Deep</div><div class="hex">#51655A</div></div>
-        </div>
-      </div>
-    </div>
-  </foreignObject>
+  <rect x="0.5" y="0.5" width="399" height="211" rx="3.5" fill="#181A19" stroke="#343936"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#D9DBD5">
+    <text x="25" y="35" fill="#929992" font-size="10" letter-spacing="1.8">01 / DARK</text>
+    <text x="25" y="65" font-size="22" font-weight="500" letter-spacing="-0.5">Sumi</text>
+    <g transform="translate(25.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#171A19" stroke="#343936"/>
+      <text y="163" font-size="10">Base</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#171A19</text>
+    </g>
+    <g transform="translate(84.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#222624" stroke="#343936"/>
+      <text y="163" font-size="10">Surface</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#222624</text>
+    </g>
+    <g transform="translate(144.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#D9DBD5" stroke="#343936"/>
+      <text y="163" font-size="10">Ink</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#D9DBD5</text>
+    </g>
+    <g transform="translate(204.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#929992" stroke="#343936"/>
+      <text y="163" font-size="10">Muted</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#929992</text>
+    </g>
+    <g transform="translate(263.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#7E8F87" stroke="#343936"/>
+      <text y="163" font-size="10">Accent</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#7E8F87</text>
+    </g>
+    <g transform="translate(323.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#51655A" stroke="#343936"/>
+      <text y="163" font-size="10">Deep</text>
+      <text y="178" fill="#929992" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#51655A</text>
+    </g>
+  </g>
 </svg>

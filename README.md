@@ -15,7 +15,7 @@ Ok now you can read more AI slop about the theme for details that I absolutely d
 ## Features
 
 - A minimalist editorial interface with integrated panes and tabs.
-- Seven curated palettes, from warm paper to deep black.
+- Eight curated palettes, from warm paper to deep black.
 - Refined typography with local font stacks and CJK fallbacks.
 - Cohesive styling for notes, navigation, prompts, graph, and Canvas.
 - Optional customization through Style Settings.
@@ -30,7 +30,10 @@ Ok now you can read more AI slop about the theme for details that I absolutely d
   <a href="assets/palettes/violet.svg"><img src="assets/palettes/violet.svg" alt="Obsidian Violet — dark slate and muted violet palette" width="400" /></a>
   <a href="assets/palettes/kuro.svg"><img src="assets/palettes/kuro.svg" alt="Kuro / Turquoise — dark charcoal and turquoise palette" width="400" /></a>
   <a href="assets/palettes/sumi-negative.svg"><img src="assets/palettes/sumi-negative.svg" alt="Sumi Negative — dark warm black and blush palette" width="400" /></a>
+  <a href="assets/palettes/papirus.svg"><img src="assets/palettes/papirus.svg" alt="Papirus — dark graphite, parchment, and green palette" width="400" /></a>
 </p>
+
+Papirus palette inspired by the dark colors of Obsidian Typewriter by crashmoney.
 
 ## Installation
 

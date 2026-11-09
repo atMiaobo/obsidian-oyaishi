@@ -1,30 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="title description">
   <title id="title">Obsidian Violet palette</title>
   <desc id="description">Obsidian Violet, dark palette. Base #1A1B1F, Surface #22232A, Ink #E2DDE8, Muted #A29AAF, Accent #71627A, Deep #2E293A.</desc>
-  <foreignObject x="0" y="0" width="400" height="212">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <style>
-        * { box-sizing: border-box; }
-        .card { width: 400px; height: 212px; padding: 24px; border: 1px solid #3D354B; border-radius: 4px; background: #1B1C1F; color: #E2DDE8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-        .eyebrow { color: #A29AAF; font-size: 10px; line-height: 12px; letter-spacing: 1.8px; text-transform: uppercase; }
-        h2 { margin: 6px 0 0; font-size: 22px; line-height: 28px; font-weight: 500; letter-spacing: -0.5px; }
-        .swatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
-        .color { height: 50px; border-radius: 2px; border: 1px solid #3D354B; }
-        .label { margin-top: 8px; font-size: 10px; line-height: 12px; }
-        .hex { margin-top: 3px; color: #A29AAF; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 9px; line-height: 12px; }
-      </style>
-      <div class="card">
-        <div class="eyebrow">05 / dark</div>
-        <h2>Obsidian Violet</h2>
-        <div class="swatches">
-          <div class="swatch"><div class="color" style="background: #1A1B1F"></div><div class="label">Base</div><div class="hex">#1A1B1F</div></div>
-          <div class="swatch"><div class="color" style="background: #22232A"></div><div class="label">Surface</div><div class="hex">#22232A</div></div>
-          <div class="swatch"><div class="color" style="background: #E2DDE8"></div><div class="label">Ink</div><div class="hex">#E2DDE8</div></div>
-          <div class="swatch"><div class="color" style="background: #A29AAF"></div><div class="label">Muted</div><div class="hex">#A29AAF</div></div>
-          <div class="swatch"><div class="color" style="background: #71627A"></div><div class="label">Accent</div><div class="hex">#71627A</div></div>
-          <div class="swatch"><div class="color" style="background: #2E293A"></div><div class="label">Deep</div><div class="hex">#2E293A</div></div>
-        </div>
-      </div>
-    </div>
-  </foreignObject>
+  <rect x="0.5" y="0.5" width="399" height="211" rx="3.5" fill="#1B1C1F" stroke="#3D354B"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#E2DDE8">
+    <text x="25" y="35" fill="#A29AAF" font-size="10" letter-spacing="1.8">05 / DARK</text>
+    <text x="25" y="65" font-size="22" font-weight="500" letter-spacing="-0.5">Obsidian Violet</text>
+    <g transform="translate(25.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#1A1B1F" stroke="#3D354B"/>
+      <text y="163" font-size="10">Base</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#1A1B1F</text>
+    </g>
+    <g transform="translate(84.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#22232A" stroke="#3D354B"/>
+      <text y="163" font-size="10">Surface</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#22232A</text>
+    </g>
+    <g transform="translate(144.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#E2DDE8" stroke="#3D354B"/>
+      <text y="163" font-size="10">Ink</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#E2DDE8</text>
+    </g>
+    <g transform="translate(204.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#A29AAF" stroke="#3D354B"/>
+      <text y="163" font-size="10">Muted</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#A29AAF</text>
+    </g>
+    <g transform="translate(263.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#71627A" stroke="#3D354B"/>
+      <text y="163" font-size="10">Accent</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#71627A</text>
+    </g>
+    <g transform="translate(323.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#2E293A" stroke="#3D354B"/>
+      <text y="163" font-size="10">Deep</text>
+      <text y="178" fill="#A29AAF" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#2E293A</text>
+    </g>
+  </g>
 </svg>

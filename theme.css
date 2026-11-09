@@ -1,5 +1,5 @@
 /*
- * Oyaishi · 1.2.2
+ * Oyaishi · 1.3.0
  * 大谷石 · An understated, architectural writing environment.
  * A matte, editorial workspace. No remote assets or runtime scripts.
  * Sections: settings / foundations / palettes / semantic colors / workspace /
@@ -35,6 +35,8 @@ settings:
         value: qs-kuro
       - label: 07 · Sumi Negative — Dark
         value: qs-sumi-negative
+      - label: 08 — Papirus
+        value: qs-papirus
   - id: qs-accent-strength
     title: Accent intensity
     description: Strength of document highlights. Navigation and chrome remain neutral, including with preferences saved in earlier versions.
@@ -436,6 +438,73 @@ body.theme-dark.qs-sumi-negative {
   --accent-h: 12;
   --accent-s: 36%;
   --accent-l: 74%;
+}
+
+/* Papirus palette inspired by the dark colors of Obsidian Typewriter by crashmoney.
+ * Independently mapped numerical colors; no source CSS, assets, or typography.
+ * Native color aliases below have palette specificity over the shared contract.
+ */
+body.theme-dark.qs-papirus {
+  --qs-neutral: #202020;
+  --qs-bg: #262626;
+  --qs-panel: #3A342E;
+  --qs-raised: #2A2A2A;
+  --qs-border: #333333;
+  --qs-fg: #C5B8A1;
+  --qs-muted: #9E9E9E;
+  /* Source muted #999999 needs a small parchment lift on the warm sidebar. */
+  --qs-secondary: color-mix(in srgb, #999999 88%, var(--qs-fg));
+  --qs-plane: var(--qs-bg);
+  --qs-sidebar: var(--qs-panel);
+  --qs-chrome: var(--qs-plane);
+  --qs-plane-soft: var(--qs-neutral);
+  --qs-plane-raised: var(--qs-raised);
+  --qs-rule: var(--qs-border);
+  --qs-rule-strong: #5E5E5E;
+  --qs-hover: #303030;
+  --qs-selection: var(--qs-hover);
+  --qs-text-selection: rgba(23, 48, 77, 0.99);
+  --qs-accent: #519D5C;
+  --qs-accent-secondary: #6DB478;
+  --qs-accent-deep: color-mix(in srgb, var(--qs-accent) 55%, var(--qs-bg));
+  --qs-link: var(--qs-accent-secondary);
+  --qs-link-hover: color-mix(in srgb, var(--qs-link) 70%, var(--qs-fg));
+  /* Keep source light action ink; deepen green fills for readable small labels. */
+  --qs-action: color-mix(in srgb, var(--qs-accent) 55%, var(--qs-bg));
+  --qs-action-hover: color-mix(in srgb, var(--qs-accent) 58%, var(--qs-bg));
+  --qs-on-action: #DCDDDE;
+  /* Source focus #5C5C5C needs a parchment lift for the warm secondary plane. */
+  --qs-focus: color-mix(in srgb, #5C5C5C 64%, var(--qs-fg));
+  --qs-indicator: var(--qs-accent);
+  --qs-icon-active: var(--qs-link);
+  /* Retain source highlight hues; reduce document alpha for parchment ink. */
+  --qs-tint: color-mix(in srgb, rgba(255, 177, 80, 0.30) calc(var(--qs-accent-strength) * 3%), transparent);
+  --qs-search-bg: rgba(255, 128, 0, 0.40);
+  --qs-search-ink: var(--qs-on-action);
+  --qs-callout-note: var(--qs-link);
+  --qs-signal-red: #B05279;
+  --qs-signal-orange: #E87D3E;
+  --qs-signal-yellow: #E5B567;
+  --qs-signal-green: #B4D273;
+  --qs-signal-cyan: color-mix(in srgb, #6C99BB 50%, #B4D273);
+  --qs-signal-blue: #6C99BB;
+  --qs-signal-purple: #9E86C8;
+  --qs-signal-pink: #B05279;
+  /* Rose needs more than the shared 8% ink lift for code and warning labels. */
+  --color-red: color-mix(in srgb, var(--qs-signal-red) 45%, var(--qs-fg));
+  --color-pink: var(--color-red);
+  --accent-h: 129;
+  --accent-s: 32%;
+  --accent-l: 47%;
+  --background-secondary-alt: #000000;
+  --background-modifier-cover: #080808;
+  --interactive-normal: #2A2A2A;
+  --interactive-hover: #303030;
+  --graph-line: #6F7577;
+  --scrollbar-bg: rgba(255, 255, 255, 0.05);
+  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.10);
+  /* Source active alpha .20 is too faint as a meaningful scroll indicator. */
+  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.38);
 }
 
 /* 03 · Semantic contract. Shared components consume roles, not pigment hexes.
