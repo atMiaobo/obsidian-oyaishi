@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="title description">
+  <title id="title">Sumi Silk palette</title>
+  <desc id="description">Sumi Silk, dark palette. Onyx #0B0909, Chrome #141414, Canvas #181818, Ink #DFCCC5, Silk #CEBABA, Rule #333333.</desc>
+  <rect x="0.5" y="0.5" width="399" height="211" rx="3.5" fill="#181818" stroke="#333333"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#DFCCC5">
+    <text x="25" y="35" fill="#A4918A" font-size="10" letter-spacing="1.8">04 / DARK</text>
+    <text x="25" y="65" font-size="22" font-weight="500" letter-spacing="-0.5">Sumi Silk</text>
+    <g transform="translate(25.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#0B0909" stroke="#333333"/>
+      <text y="163" font-size="10">Onyx</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#0B0909</text>
+    </g>
+    <g transform="translate(84.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#141414" stroke="#333333"/>
+      <text y="163" font-size="10">Chrome</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#141414</text>
+    </g>
+    <g transform="translate(144.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#181818" stroke="#333333"/>
+      <text y="163" font-size="10">Canvas</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#181818</text>
+    </g>
+    <g transform="translate(204.0000 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#DFCCC5" stroke="#333333"/>
+      <text y="163" font-size="10">Ink</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#DFCCC5</text>
+    </g>
+    <g transform="translate(263.6667 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#CEBABA" stroke="#333333"/>
+      <text y="163" font-size="10">Silk</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#CEBABA</text>
+    </g>
+    <g transform="translate(323.3333 0)">
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#333333" stroke="#333333"/>
+      <text y="163" font-size="10">Rule</text>
+      <text y="178" fill="#A4918A" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#333333</text>
+    </g>
+  </g>
+</svg>

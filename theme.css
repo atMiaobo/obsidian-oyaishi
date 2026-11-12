@@ -16,27 +16,21 @@ settings:
     level: 1
   - id: qs-palette
     title: Palette
-    description: Choose the matching color scheme in Appearance. Dark palettes apply in Dark mode; Washi applies in Light mode. An incompatible choice falls back to Sumi (Dark) or Washi (Light). System mode follows your OS.
+    description: Choose the matching color scheme in Appearance. Dark palettes apply in Dark mode; Sumi Light applies in Light mode. An incompatible or retired choice falls back to Sumi Ink (Dark) or Sumi Light (Light). System mode follows your OS.
     type: class-select
     allowEmpty: false
     default: qs-sumi
     options:
-      - label: 01 · Sumi — Dark
+      - label: Sumi Ink
         value: qs-sumi
-      - label: 02 · Washi — Light
-        value: qs-washi
-      - label: 03 · Kohaku — Dark
-        value: qs-kohaku
-      - label: 04 · Vermilion — Dark
+      - label: Vermillion Dark
         value: qs-vermilion
-      - label: 05 · Obsidian Violet — Dark
-        value: qs-violet
-      - label: 06 · Kuro / Turquoise — Dark
-        value: qs-kuro
-      - label: 07 · Sumi Negative — Dark
+      - label: Sumi Light
+        value: qs-sumi-light
+      - label: Sumi Silk
+        value: qs-sumi-silk
+      - label: Sumi Negative
         value: qs-sumi-negative
-      - label: 08 — Papirus
-        value: qs-papirus
   - id: qs-accent-strength
     title: Accent intensity
     description: Strength of document highlights. Navigation and chrome remain neutral, including with preferences saved in earlier versions.
@@ -198,23 +192,25 @@ body {
   --prompt-max-height: 80vh;
 
   /* Shared color roles. Palettes override tokens, never component geometry. */
-  --qs-plane: color-mix(in srgb, var(--qs-bg) 30%, var(--qs-neutral));
-  --qs-sidebar: var(--qs-plane);
+  /* Opaque material roles: never neutralize a palette's foundation or lift
+   * surfaces with text ink. Temporary highlights retain their own alpha. */
+  --qs-plane: var(--qs-bg);
+  --qs-sidebar: var(--qs-panel);
   --qs-chrome: var(--qs-plane);
-  --qs-plane-soft: color-mix(in srgb, var(--qs-fg) 3%, var(--qs-plane));
-  --qs-plane-raised: color-mix(in srgb, var(--qs-fg) 5%, var(--qs-plane));
-  --qs-rule: color-mix(in srgb, var(--qs-fg) 12%, var(--qs-plane));
+  --qs-plane-soft: var(--qs-neutral);
+  --qs-plane-raised: var(--qs-raised);
+  --qs-rule: var(--qs-border);
   --qs-rule-strong: color-mix(in srgb, var(--qs-fg) 24%, var(--qs-plane));
   --qs-secondary: color-mix(in srgb, var(--qs-muted) 82%, var(--qs-fg));
   --qs-disabled: color-mix(in srgb, var(--qs-muted) 70%, var(--qs-plane));
   --qs-tint-color: var(--qs-accent);
   --qs-tint: color-mix(in srgb, var(--qs-tint-color) calc(var(--qs-accent-strength) * 1%), transparent);
   --qs-hover: color-mix(in srgb, var(--qs-fg) 4%, transparent);
-  --qs-selection: color-mix(in srgb, var(--qs-fg) 7%, transparent);
+  --qs-selection: var(--qs-plane-raised);
   --qs-text-selection: color-mix(in srgb, var(--qs-accent) 28%, transparent);
   --qs-focus: color-mix(in srgb, var(--qs-link) 85%, var(--qs-fg));
-  --qs-indicator: var(--qs-muted);
-  --qs-icon-active: var(--qs-fg);
+  --qs-indicator: var(--qs-accent);
+  --qs-icon-active: var(--qs-link);
   --qs-link-hover: color-mix(in srgb, var(--qs-link) 70%, var(--qs-fg));
   --qs-action-hover: color-mix(in srgb, var(--qs-action) 96%, var(--qs-on-action));
   --qs-tag-ink: var(--qs-secondary);
@@ -223,28 +219,28 @@ body {
   --qs-callout-note: var(--color-blue);
 }
 
-/* 02 · Palettes. Mode guards intentionally preserve Obsidian's native scheme.
- * No plugin: .theme-dark = Sumi; .theme-light = Washi.
- * Style Settings adds exactly one qs-* palette class to body.
- */
+/* 02 · Palettes. Sumi Ink is the dark fallback; Sumi Light is the light
+ * fallback. Retired/unknown saved classes need no migration or preference reset.
+ * Mode guards keep dark selections readable when Appearance is Light. */
 body.theme-dark {
   color-scheme: dark;
-  --qs-neutral: #191A19;
-  --qs-bg: #171A19;
-  --qs-panel: #222624;
-  --qs-raised: #2B302D;
-  --qs-border: #343936;
-  --qs-muted: #929992;
-  --qs-fg: #D9DBD5;
-  --qs-accent: #7E8F87;
-  --qs-accent-secondary: #A2B2A8;
-  --qs-accent-deep: #51655A;
-  --qs-link: #A5BBB0;
-  --qs-action: #7E8F87;
-  --qs-on-action: #111715;
-  --accent-h: 152;
-  --accent-s: 7%;
-  --accent-l: 53%;
+  --qs-neutral: #1B1B1B;
+  --qs-bg: #181818;
+  --qs-panel: #141414;
+  --qs-raised: #202020;
+  --qs-border: #333333;
+  --qs-secondary: #D0D0D0;
+  --qs-muted: #AAAAAA;
+  --qs-fg: #E5E5E5;
+  --qs-accent: #D0D0D0;
+  --qs-accent-secondary: #E5E5E5;
+  --qs-accent-deep: #888888;
+  --qs-link: #D0D0D0;
+  --qs-action: #D0D0D0;
+  --qs-on-action: #181818;
+  --accent-h: 0;
+  --accent-s: 0%;
+  --accent-l: 81.568627%;
   --qs-signal-red: #D28D84;
   --qs-signal-orange: #CBA67D;
   --qs-signal-yellow: #C8BB85;
@@ -255,178 +251,132 @@ body.theme-dark {
   --qs-signal-pink: #C8A0B3;
 }
 
-body.theme-light {
-  color-scheme: light;
-  --qs-neutral: #F2F1ED;
-  --qs-bg: #F4F1E9;
-  --qs-panel: #E9E5DC;
-  --qs-raised: #DDD7CB;
-  --qs-border: #D5D0C5;
-  /* Deepened from the supplied muted token for readable small labels. */
-  --qs-muted: #5F5E56;
-  --qs-fg: #30322F;
-  --qs-accent: #8A7B67;
-  --qs-accent-secondary: #71614E;
-  --qs-accent-deep: #5D5141;
-  --qs-link: #65543F;
-  --qs-action: #71614E;
-  --qs-on-action: #FFFCF5;
-  --accent-h: 34;
-  --accent-s: 14%;
-  --accent-l: 47%;
-  --qs-signal-red: #9A443D;
-  --qs-signal-orange: #8A542C;
-  --qs-signal-yellow: #79651F;
-  --qs-signal-green: #4D6A45;
-  --qs-signal-cyan: #326B67;
-  --qs-signal-blue: #42668B;
-  --qs-signal-purple: #775986;
-  --qs-signal-pink: #8B536D;
-}
-
-body.theme-dark.qs-kohaku {
-  --qs-neutral: #222120;
-  --qs-bg: #24211E;
-  --qs-panel: #332D27;
-  --qs-raised: #433A32;
-  --qs-border: #655B4F;
-  --qs-muted: #B7A48B;
-  --qs-fg: #E4D7C2;
-  --qs-accent: #B4946C;
-  --qs-accent-secondary: #C7AA83;
-  --qs-accent-deep: #7D6040;
-  --qs-link: #CEAE84;
-  --qs-action: #B4946C;
-  --qs-on-action: #211C16;
-  --accent-h: 33;
-  --accent-s: 32%;
-  --accent-l: 56%;
-  /* Warm slate and sage keep technical content in the amber-stone family. */
-  --qs-signal-blue: #A9ADAF;
-  --qs-signal-cyan: #9BB7AD;
-  --qs-signal-purple: #B7A0B3;
-}
-
 body.theme-dark.qs-vermilion {
-  --qs-neutral: #1C1919;
-  --qs-bg: #1C1919;
-  --qs-panel: #231E1D;
-  --qs-raised: #2C2422;
-  --qs-border: #40302D;
-  --qs-fg: #E9DEDA;
-  --qs-secondary: #B8A8A3;
-  --qs-muted: #A08E89;
-  --qs-plane: var(--qs-bg);
-  --qs-sidebar: var(--qs-panel);
-  --qs-plane-soft: color-mix(in srgb, var(--qs-panel) 55%, var(--qs-bg));
-  --qs-plane-raised: var(--qs-raised);
-  --qs-rule: var(--qs-border);
-  /* Four exact pigments: soft details / brick action / red hover / lacquer glaze. */
+  /* Neutral ink foundations; accent pigments never tint structural planes. */
+  --qs-bg: #181818;
+  --qs-neutral: #1B1B1B;
+  --qs-panel: #141414;
+  --qs-raised: #202020;
+  --qs-chrome: #0B0909;
+  --qs-border: #333333;
+  --qs-rule-strong: #454545;
+  --qs-fg: #F8F8F8;
+  --qs-secondary: #D0D0D0;
+  --qs-muted: #AAAAAA;
+  --qs-hover: #242424;
+  --qs-selection: #2C2C2C;
+  --qs-text-selection: #454545;
+  /* Exact family: detail / action / action hover / small search-match fill. */
   --qs-accent: #B65B4A;
   --qs-accent-secondary: #A34138;
   --qs-accent-tertiary: #9E2F26;
   --qs-accent-deep: #7D1F23;
-  --qs-link: color-mix(in srgb, var(--qs-accent) 55%, var(--qs-fg));
-  --qs-link-hover: color-mix(in srgb, var(--qs-accent) 35%, var(--qs-fg));
+  /* Small link labels need a paper lift; raw detail red is only 3.56:1 on #202020. */
+  --qs-link: color-mix(in srgb, var(--qs-accent) 65%, var(--qs-fg));
+  --qs-link-hover: color-mix(in srgb, var(--qs-accent) 45%, var(--qs-fg));
   --qs-action: var(--qs-accent-secondary);
   --qs-action-hover: var(--qs-accent-tertiary);
-  --qs-on-action: #FFF6F1;
-  --qs-indicator: var(--qs-link);
+  --qs-on-action: var(--qs-fg);
+  --qs-focus: var(--qs-accent);
+  --qs-indicator: var(--qs-accent);
   --qs-icon-active: var(--qs-link);
-  --qs-tag-ink: var(--qs-link);
-  --qs-tint-color: color-mix(in srgb, var(--qs-accent-deep) 50%, var(--qs-accent));
-  --qs-callout-note: var(--qs-link);
+  --qs-tag-ink: var(--qs-secondary);
+  --qs-tint: #2C2C2C;
+  --qs-search-bg: var(--qs-accent-deep);
+  --qs-search-ink: var(--qs-fg);
+  --qs-callout-note: var(--qs-secondary);
+  --background-secondary-alt: var(--qs-panel);
+  --background-modifier-cover: #090909;
+  --background-modifier-form-field: var(--qs-plane-raised);
+  --background-modifier-form-field-hover: var(--qs-hover);
+  --modal-background: var(--menu-background);
+  --modal-sidebar-background: var(--qs-chrome);
+  --settings-background: var(--menu-background);
+  --prompt-background: var(--menu-background);
+  --menu-background: #111111;
+  --suggestion-background: var(--menu-background);
+  --tab-container-background: var(--qs-panel);
+  --tab-background-active: transparent;
+  --file-header-background: var(--qs-panel);
+  --file-header-background-focused: var(--qs-panel);
+  --scrollbar-thumb-bg: #666666;
+  --scrollbar-active-thumb-bg: var(--qs-muted);
+  --text-highlight-bg-rgb: 44, 44, 44;
+  --table-selection: var(--qs-selection);
+  --code-normal: var(--qs-fg);
+
+  --callout-info: var(--qs-secondary);
+  --callout-todo: var(--qs-secondary);
+  --callout-summary: var(--qs-secondary);
+  --callout-tip: var(--qs-secondary);
+  --callout-important: var(--qs-link);
+  --callout-example: var(--qs-secondary);
+  --callout-question: var(--qs-secondary);
+  --callout-quote: var(--qs-secondary);
+  /* Preserve semantic warnings/success and intentionally color-assigned cards. */
   --qs-signal-red: color-mix(in srgb, var(--qs-accent) 62%, var(--qs-fg));
-  --qs-signal-orange: #C8A28C;
-  --qs-signal-yellow: #C3B59B;
-  --qs-signal-green: #A8B5A4;
-  --qs-signal-cyan: #A5B7B2;
-  --qs-signal-blue: #A4AFBC;
-  --qs-signal-purple: #B6A5B3;
-  --qs-signal-pink: #C3A4AC;
-  --accent-h: 9;
-  --accent-s: 43%;
-  --accent-l: 50%;
+  --qs-signal-orange: #D4A079;
+  --qs-signal-yellow: #CDB282;
+  --qs-signal-green: #A7B58F;
+  --qs-signal-cyan: #91B3AB;
+  --qs-signal-blue: #9AAAC0;
+  --qs-signal-purple: #BB9AB6;
+  --qs-signal-pink: #CB99A0;
+  --accent-h: 9.444444;
+  --accent-s: 42.519685%;
+  --accent-l: 50.196078%;
+  --color-accent-1: var(--qs-accent);
+  --color-accent-2: var(--qs-link);
+  --color-accent-hsl: 9.444444, 42.519685%, 50.196078%;
+  --interactive-accent-hsl: 5.046729, 48.858447%, 42.941176%;
 }
 
-body.theme-dark.qs-violet {
-  --qs-neutral: #1B1C1F;
-  --qs-bg: #1A1B1F;
-  --qs-panel: #22232A;
-  --qs-raised: #2B2934;
-  --qs-border: #3D354B;
-  --qs-muted: #A29AAF;
-  --qs-fg: #E2DDE8;
-  --qs-accent: #71627A;
-  --qs-accent-secondary: #5B4965;
-  --qs-accent-deep: #2E293A;
-  --qs-link: #B9A6C8;
-  --qs-action: #71627A;
-  --qs-on-action: #FCF7FF;
-  --accent-h: 278;
-  --accent-s: 11%;
-  --accent-l: 43%;
-  --qs-signal-red: #C39A9F;
-  --qs-signal-orange: #B8A08E;
-  --qs-signal-yellow: #BDB49E;
-  --qs-signal-green: #A3B2A0;
-  --qs-signal-blue: #A1ACC1;
+/* Floating content must inherit the floating plane, including nested previews. */
+body.theme-dark.qs-vermilion :is(.popover, .hover-popover, .cm-tooltip) {
+  --background-primary: var(--menu-background);
+  background-color: var(--menu-background);
 }
 
-body.theme-dark.qs-kuro {
-  --qs-neutral: #0E1112;
-  --qs-bg: #0D1112;
-  --qs-panel: #141A1B;
-  --qs-raised: #1B2324;
-  --qs-border: #263233;
-  --qs-muted: #8FA3A2;
-  --qs-fg: #D9E8E6;
-  --qs-accent: #4CB7B0;
-  --qs-accent-secondary: #78D6CF;
-  --qs-accent-deep: #2E8F8A;
-  --qs-link: #78D6CF;
-  --qs-action: #4CB7B0;
-  --qs-on-action: #0D1919;
-  --accent-h: 176;
-  --accent-s: 43%;
-  --accent-l: 51%;
-  --qs-signal-orange: #C6A38D;
-  --qs-signal-yellow: #BABC9C;
-  --qs-signal-green: #9FB6AA;
-  --qs-signal-blue: #94ADB8;
-}
-
+/* Original Sumi Negative 1.3.0 pigments, on the current shared components. */
 body.theme-dark.qs-sumi-negative {
   color-scheme: dark;
+
   --qs-neutral: #131212;
   --qs-bg: #131212;
   --qs-panel: #191717;
   --qs-raised: #211E1E;
   --qs-border: #373131;
+
   --qs-fg: #E3CFC8;
   --qs-secondary: #C8B9B5;
   --qs-muted: #A99B98;
+
   --qs-plane: var(--qs-bg);
   --qs-sidebar: var(--qs-panel);
   --qs-plane-soft: var(--qs-panel);
   --qs-plane-raised: var(--qs-raised);
   --qs-rule: var(--qs-border);
+
   --qs-hover: #2A2626;
   --qs-selection: #2A2626;
   --qs-text-selection: #2A2626;
+
   --qs-accent: #D4ADA3;
   --qs-accent-secondary: #E1BFB6;
   --qs-accent-deep: #A78279;
+
   --qs-link: var(--qs-accent);
   --qs-link-hover: var(--qs-accent-secondary);
+
   --qs-action: var(--qs-accent);
   --qs-action-hover: var(--qs-accent-secondary);
   --qs-on-action: #131212;
+
   --qs-focus: var(--qs-accent-secondary);
   --qs-indicator: var(--qs-accent);
   --qs-icon-active: var(--qs-accent);
   --qs-callout-note: var(--qs-secondary);
-  /* Near-monochrome syntax and signals: no inherited blue/green/purple cast. */
+
   --qs-signal-red: #D5A59B;
   --qs-signal-orange: #CEB7AA;
   --qs-signal-yellow: #D6C7BC;
@@ -435,76 +385,19 @@ body.theme-dark.qs-sumi-negative {
   --qs-signal-blue: #C5BEBB;
   --qs-signal-purple: #D1BDB6;
   --qs-signal-pink: #D4B9B1;
+
   --accent-h: 12;
   --accent-s: 36%;
   --accent-l: 74%;
 }
 
-/* Papirus palette inspired by the dark colors of Obsidian Typewriter by crashmoney.
- * Independently mapped numerical colors; no source CSS, assets, or typography.
- * Native color aliases below have palette specificity over the shared contract.
- */
-body.theme-dark.qs-papirus {
-  --qs-neutral: #202020;
-  --qs-bg: #262626;
-  --qs-panel: #3A342E;
-  --qs-raised: #2A2A2A;
-  --qs-border: #333333;
-  --qs-fg: #C5B8A1;
-  --qs-muted: #9E9E9E;
-  /* Source muted #999999 needs a small parchment lift on the warm sidebar. */
-  --qs-secondary: color-mix(in srgb, #999999 88%, var(--qs-fg));
-  --qs-plane: var(--qs-bg);
-  --qs-sidebar: var(--qs-panel);
-  --qs-chrome: var(--qs-plane);
-  --qs-plane-soft: var(--qs-neutral);
-  --qs-plane-raised: var(--qs-raised);
-  --qs-rule: var(--qs-border);
-  --qs-rule-strong: #5E5E5E;
-  --qs-hover: #303030;
-  --qs-selection: var(--qs-hover);
-  --qs-text-selection: rgba(23, 48, 77, 0.99);
-  --qs-accent: #519D5C;
-  --qs-accent-secondary: #6DB478;
-  --qs-accent-deep: color-mix(in srgb, var(--qs-accent) 55%, var(--qs-bg));
-  --qs-link: var(--qs-accent-secondary);
-  --qs-link-hover: color-mix(in srgb, var(--qs-link) 70%, var(--qs-fg));
-  /* Keep source light action ink; deepen green fills for readable small labels. */
-  --qs-action: color-mix(in srgb, var(--qs-accent) 55%, var(--qs-bg));
-  --qs-action-hover: color-mix(in srgb, var(--qs-accent) 58%, var(--qs-bg));
-  --qs-on-action: #DCDDDE;
-  /* Source focus #5C5C5C needs a parchment lift for the warm secondary plane. */
-  --qs-focus: color-mix(in srgb, #5C5C5C 64%, var(--qs-fg));
-  --qs-indicator: var(--qs-accent);
-  --qs-icon-active: var(--qs-link);
-  /* Retain source highlight hues; reduce document alpha for parchment ink. */
-  --qs-tint: color-mix(in srgb, rgba(255, 177, 80, 0.30) calc(var(--qs-accent-strength) * 3%), transparent);
-  --qs-search-bg: rgba(255, 128, 0, 0.40);
-  --qs-search-ink: var(--qs-on-action);
-  --qs-callout-note: var(--qs-link);
-  --qs-signal-red: #B05279;
-  --qs-signal-orange: #E87D3E;
-  --qs-signal-yellow: #E5B567;
-  --qs-signal-green: #B4D273;
-  --qs-signal-cyan: color-mix(in srgb, #6C99BB 50%, #B4D273);
-  --qs-signal-blue: #6C99BB;
-  --qs-signal-purple: #9E86C8;
-  --qs-signal-pink: #B05279;
-  /* Rose needs more than the shared 8% ink lift for code and warning labels. */
-  --color-red: color-mix(in srgb, var(--qs-signal-red) 45%, var(--qs-fg));
-  --color-pink: var(--color-red);
-  --accent-h: 129;
-  --accent-s: 32%;
-  --accent-l: 47%;
-  --background-secondary-alt: #000000;
-  --background-modifier-cover: #080808;
-  --interactive-normal: #2A2A2A;
-  --interactive-hover: #303030;
-  --graph-line: #6F7577;
-  --scrollbar-bg: rgba(255, 255, 255, 0.05);
-  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.10);
-  /* Source active alpha .20 is too faint as a meaningful scroll indicator. */
-  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.38);
+/* Palette defaults: native Appearance overrides and Style Settings font
+ * choices still win. Removing either palette class restores the shared fonts.
+ * CJK/Unicode glyphs fall through to local fonts; no font assets are bundled. */
+body:where(.theme-dark.qs-sumi-silk, .theme-dark.qs-sumi-negative) {
+  --qs-font-interface: "Maple Mono NF", ui-monospace, "Noto Sans Mono CJK TC", "Noto Sans Mono CJK JP", "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", monospace;
+  --qs-font-body: "Maple Mono NF", ui-monospace, "Noto Sans Mono CJK TC", "Noto Sans Mono CJK JP", "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", monospace;
+  --qs-font-mono: "Maple Mono NF", ui-monospace, "Noto Sans Mono CJK TC", "Noto Sans Mono CJK JP", "PingFang TC", "Hiragino Sans", "Microsoft JhengHei", monospace;
 }
 
 /* 03 · Semantic contract. Shared components consume roles, not pigment hexes.
@@ -542,7 +435,9 @@ body:is(.theme-dark, .theme-light) {
   --text-muted: var(--qs-secondary);
   --text-faint: var(--qs-muted);
   --text-on-accent: var(--qs-on-action);
-  --text-on-accent-inverted: var(--qs-plane);
+  /* Native saved accents may point inline --text-on-accent at this alias.
+   * Both paths must use the ink paired with our curated action fill. */
+  --text-on-accent-inverted: var(--qs-on-action);
   --text-accent: var(--qs-link);
   --text-accent-hover: var(--qs-link-hover);
   --text-selection: var(--qs-text-selection);
@@ -665,15 +560,22 @@ body.qs-comfortable {
   --nav-item-parent-padding: 10px 10px 10px 20px;
 }
 
-/* 04 · Workspace. One field, with an inset ink rule under the active tab.
+/* 04 · Workspace. Shared baseline, with an inset rule under the active tab.
  * Keep native drag regions, window-button spacing, and stacked-tab geometry.
  */
 .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container {
+  border-bottom: 0;
+  box-shadow: inset 0 -1px var(--qs-rule);
+}
+
+/* Extend the same baseline through the native corner above the ribbon. */
+.workspace-ribbon.mod-left::before {
   border-bottom: 1px solid var(--qs-rule);
+  border-inline-end: 1px solid var(--qs-rule);
 }
 
 .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  margin-block: 0 -1px;
+  margin-block: 0;
   padding-block: 0;
 }
 
@@ -683,10 +585,6 @@ body.qs-comfortable {
 
 .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container .workspace-tab-header.is-active {
   background: transparent;
-  box-shadow: none;
-}
-
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active .workspace-tab-header-inner {
   box-shadow: inset 0 -1px var(--qs-indicator);
 }
 
@@ -1012,16 +910,7 @@ body {
   --code-white-space: pre;
   --code-border-width: 0px;
   --code-border-color: var(--qs-rule);
-  --code-comment: var(--text-faint);
-  --code-function: var(--color-yellow);
-  --code-important: var(--color-orange);
-  --code-keyword: var(--color-purple);
-  --code-operator: var(--color-cyan);
-  --code-property: var(--color-blue);
-  --code-punctuation: var(--text-faint);
-  --code-string: var(--color-green);
-  --code-tag: var(--color-red);
-  --code-value: var(--color-orange);
+
   --embed-background: transparent;
   --embed-border-start: 1px solid var(--qs-rule);
   --embed-border-end: none;
@@ -1111,6 +1000,41 @@ body {
 
 .markdown-rendered pre code {
   font-variant-ligatures: none;
+}
+
+/* Native Obsidian 1.15 token roles/pigments, isolated to fenced code so palette
+ * signals, Markdown prose and inline code retain their existing colors.
+ * HyperMD-codeblock covers both Live Preview and Source mode. Native Prism
+ * and CodeMirror token selectors consume these supported --code-* hooks.
+ */
+@media screen {
+  body.theme-dark :is(.markdown-rendered pre, .markdown-source-view .HyperMD-codeblock) {
+    --code-comment: var(--text-faint);
+    --code-function: #E0DE71;
+    --code-important: #E9973F;
+    --code-keyword: #FA99CD;
+    --code-operator: #FB464C;
+    --code-property: #53DFDD;
+    --code-punctuation: var(--text-muted);
+    --code-string: #44CF6E;
+    --code-tag: #FB464C;
+    --code-value: #A882FF;
+  }
+
+  /* Native light hues darkened only as needed for AA on the existing #E5E5E5
+   * code surface. Do not change the light palette's grayscale UI signals. */
+  body.theme-light :is(.markdown-rendered pre, .markdown-source-view .HyperMD-codeblock) {
+    --code-comment: var(--text-faint);
+    --code-function: #806200;
+    --code-important: #A25000;
+    --code-keyword: #B73171;
+    --code-operator: #C3293B;
+    --code-property: #007372;
+    --code-punctuation: var(--text-muted);
+    --code-string: #057732;
+    --code-tag: #C3293B;
+    --code-value: #6E4BDA;
+  }
 }
 
 .markdown-rendered .copy-code-button {
@@ -1283,14 +1207,18 @@ input.prompt-input:focus {
 }
 
 .prompt-results {
-  padding: 6px;
+  padding: 6px 0;
   flex: 1 1 auto;
   min-height: 0;
 }
 
+/* Former 6px gutter + 14px row padding = the same 20px text inset.
+ * Reserve 1px for a straight edge marker, independent of row radius/shadow. */
 .prompt .suggestion-item {
-  padding: 10px 14px;
-  border-radius: var(--qs-radius);
+  padding-block: 10px;
+  padding-inline: 19px 20px;
+  border-inline-start: 1px solid transparent;
+  border-radius: 0;
 }
 
 .suggestion-item.is-selected,
@@ -1302,6 +1230,8 @@ input.prompt-input:focus {
 
 .prompt .suggestion-item.is-selected {
   background: transparent;
+  border-inline-start-color: var(--qs-indicator);
+  box-shadow: none;
 }
 
 .cm-tooltip.cm-completionInfo {
@@ -1414,6 +1344,259 @@ body {
   background: var(--qs-plane);
 }
 
+/* Sumi Ink foundation, also inherited by Sumi Silk.
+ * :where() keeps this guard at the shared contract's specificity, so
+ * the existing stronger-contrast preference and print overrides still work.
+ * Incompatible/retired selections in Dark mode use this exact ink foundation.
+ * Screen-only paint leaves the existing paper print palette intact.
+ */
+@media screen {
+  body.theme-dark:not(:where(.qs-vermilion, .qs-sumi-negative)) {
+    --qs-plane: #181818;
+    --qs-sidebar: #141414;
+    --qs-chrome: #111111;
+    --qs-rule-strong: #454545;
+    --qs-hover: #242424;
+    --qs-selection: #2C2C2C;
+    --qs-text-selection: #454545;
+    /* User-selected Dust / Alabaster / Snow establish the text hierarchy. */
+    --qs-disabled: #888888;
+    --qs-link-hover: #F8F8F8;
+    --qs-action-hover: #E5E5E5;
+    --qs-focus: #D0D0D0;
+    --qs-indicator: #D0D0D0;
+    --qs-icon-active: #D0D0D0;
+    --qs-tint-color: #D0D0D0;
+    --qs-tint: #2C2C2C;
+    --qs-tag-ink: #D0D0D0;
+    --qs-search-bg: #454545;
+    --qs-search-ink: #F8F8F8;
+    --qs-callout-note: #D0D0D0;
+
+    /* Solid structural planes and controls; no accent glaze or glass layers. */
+    --background-primary-alt: #1B1B1B;
+    --background-secondary-alt: #141414;
+    --background-modifier-cover: #090909;
+    --background-modifier-form-field-hover: #242424;
+    --interactive-normal: #202020;
+    --interactive-hover: #242424;
+    --tab-background-active: transparent;
+    --nav-item-color: #D0D0D0;
+    --icon-color: #D0D0D0;
+    --scrollbar-thumb-bg: #666666;
+    --scrollbar-active-thumb-bg: #AAAAAA;
+    --color-accent-1: #D0D0D0;
+    --color-accent-2: #E5E5E5;
+    /* Neutral aliases also isolate native HSL consumers from saved accents. */
+    --color-accent-hsl: 0, 0%, 81.568627%;
+    --interactive-accent-hsl: 0, 0%, 81.568627%;
+    --text-highlight-bg-rgb: 44, 44, 44;
+    --table-selection: #2C2C2C;
+
+    --background-modifier-form-field: #202020;
+    --tab-container-background: #141414;
+    --modal-background: #0B0909;
+    --modal-sidebar-background: #141414;
+    --settings-background: #0B0909;
+    --prompt-background: #0B0909;
+    --nav-item-background-active: #2C2C2C;
+    --qs-floating: #0B0909;
+    --menu-background: #0B0909;
+    --file-header-background: #141414;
+    --file-header-background-focused: #141414;
+    --h1-color: #F8F8F8;
+    --h2-color: #F8F8F8;
+    --h3-color: #F8F8F8;
+    --h4-color: #F8F8F8;
+    --h5-color: #F8F8F8;
+    --h6-color: #F8F8F8;
+    --inline-title-color: #F8F8F8;
+
+    /* Plain code keeps the reading ink; fenced syntax has its own native colors. */
+    --code-normal: #E5E5E5;
+
+    --callout-info: #D0D0D0;
+    --callout-todo: #D0D0D0;
+    --callout-tip: #D0D0D0;
+    --callout-summary: #D0D0D0;
+    --callout-important: #E5E5E5;
+    --callout-example: #D0D0D0;
+    --callout-question: #D0D0D0;
+    --callout-quote: #D0D0D0;
+    --canvas-dot-pattern: #242424;
+  }
+
+  /* Paint-only exceptions where the original component rules intentionally
+   * bypass native surface variables. Keep all existing geometry and markers. */
+  body.theme-dark:not(:where(.qs-vermilion, .qs-sumi-negative)) .workspace-leaf-content[data-type="search"] .search-input-container {
+    --background-modifier-form-field: var(--qs-plane-raised);
+    --background-modifier-form-field-hover: var(--qs-hover);
+  }
+
+  body.theme-dark:not(:where(.qs-vermilion, .qs-sumi-negative)) .vertical-tab-nav-item.is-active {
+    background: var(--qs-selection);
+  }
+
+  body.theme-dark:not(:where(.qs-vermilion, .qs-sumi-negative)) :is(.popover, .hover-popover, .suggestion-container, .cm-tooltip) {
+    --background-primary: var(--qs-floating);
+    background-color: var(--qs-floating);
+  }
+  /* Silk keeps the Sumi surfaces; ivory inks replace its neutral whites. */
+  body.theme-dark.qs-sumi-silk {
+    --qs-chrome: #141414;
+    --qs-fg: #DFCCC5;
+    --qs-secondary: #CAB7B0;
+    --qs-muted: #A4918A;
+    --qs-disabled: #826F68;
+    --qs-accent-deep: #826F68;
+    --qs-silk-strong: #F2DFD8;
+    --qs-silk-detail: #B5A29B;
+    --qs-accent: #CEBABA;
+    --qs-accent-secondary: #CEBABA;
+    --qs-link: #CEBABA;
+    --qs-link-hover: var(--qs-fg);
+    --qs-action-hover: var(--qs-fg);
+    --qs-action: #CEBABA;
+    --qs-focus: #CEBABA;
+    --qs-indicator: #CEBABA;
+    --qs-icon-active: #CEBABA;
+    --color-accent-1: #CEBABA;
+    --color-accent-2: var(--qs-fg);
+    --qs-tag-ink: var(--qs-secondary);
+    --qs-tint-color: var(--qs-fg);
+    --qs-search-ink: var(--qs-silk-strong);
+    --qs-callout-note: var(--qs-secondary);
+    --nav-item-color: var(--qs-secondary);
+    --icon-color: var(--qs-secondary);
+    --scrollbar-active-thumb-bg: var(--qs-muted);
+    --h1-color: var(--qs-silk-strong);
+    --h2-color: var(--qs-silk-strong);
+    --h3-color: var(--qs-silk-strong);
+    --h4-color: var(--qs-silk-strong);
+    --h5-color: var(--qs-silk-strong);
+    --h6-color: var(--qs-silk-strong);
+    --inline-title-color: var(--qs-silk-strong);
+    --code-normal: var(--qs-fg);
+
+    --callout-info: var(--qs-secondary);
+    --callout-todo: var(--qs-secondary);
+    --callout-tip: var(--qs-secondary);
+    --callout-summary: var(--qs-secondary);
+    --callout-important: var(--qs-fg);
+    --callout-example: var(--qs-secondary);
+    --callout-question: var(--qs-secondary);
+    --callout-quote: var(--qs-secondary);
+    --accent-h: 0.000000;
+    --accent-s: 16.949153%;
+    --accent-l: 76.862745%;
+    --color-accent-hsl: 0.000000, 16.949153%, 76.862745%;
+    --interactive-accent-hsl: 0.000000, 16.949153%, 76.862745%;
+  }
+
+  :is(body.theme-light, body.theme-dark.qs-sumi-negative) .workspace-leaf-content[data-type="search"] .search-input-container {
+    --background-modifier-form-field: var(--qs-plane-raised);
+    --background-modifier-form-field-hover: var(--qs-hover);
+  }
+
+  :is(body.theme-light, body.theme-dark.qs-sumi-negative) :is(.popover, .hover-popover, .suggestion-container, .cm-tooltip) {
+    --background-primary: var(--menu-background);
+    background-color: var(--menu-background);
+  }
+}
+
+/* Sumi Light: the five user-locked inverse anchors. */
+body.theme-light {
+  color-scheme: light;
+  --qs-bg: #F8F8F8;
+  --qs-plane: #F8F8F8;
+  --qs-panel: #E5E5E5;
+  --qs-sidebar: #E5E5E5;
+  --qs-chrome: #E5E5E5;
+  --qs-neutral: #F8F8F8;
+  --qs-raised: #F8F8F8;
+  --qs-border: #B0B0B0;
+  --qs-rule-strong: #888888;
+  --qs-fg: #181818;
+  --qs-secondary: #454545;
+  --qs-muted: #595959;
+  --qs-disabled: #888888;
+  --qs-accent: #0B0909;
+  --qs-accent-secondary: #181818;
+  --qs-accent-deep: #0B0909;
+  --qs-link: #181818;
+  --qs-link-hover: #0B0909;
+  --qs-action: #181818;
+  --qs-action-hover: #0B0909;
+  --qs-on-action: #F8F8F8;
+  --qs-focus: #0B0909;
+  --qs-indicator: #0B0909;
+  --qs-icon-active: #181818;
+  --qs-hover: #E5E5E5;
+  --qs-selection: #D0D0D0;
+  --qs-text-selection: #D0D0D0;
+  --qs-tint: #D0D0D0;
+  --qs-tag-ink: #454545;
+  --qs-search-bg: #D0D0D0;
+  --qs-search-ink: #181818;
+  --qs-callout-note: #454545;
+  --background-secondary-alt: #E5E5E5;
+  --background-modifier-cover: #D0D0D0;
+  --background-modifier-form-field: #F8F8F8;
+  --background-modifier-form-field-hover: #E5E5E5;
+  --interactive-normal: #F8F8F8;
+  --interactive-hover: #E5E5E5;
+  --tab-background-active: transparent;
+  --nav-item-background-active: #D0D0D0;
+  --modal-background: #F8F8F8;
+  --modal-sidebar-background: #E5E5E5;
+  --settings-background: #F8F8F8;
+  --prompt-background: #F8F8F8;
+  --menu-background: #F8F8F8;
+  --suggestion-background: #F8F8F8;
+  --scrollbar-thumb-bg: #999999;
+  --scrollbar-active-thumb-bg: #666666;
+  --color-accent-1: #0B0909;
+  --color-accent-2: #181818;
+  --text-highlight-bg-rgb: 208, 208, 208;
+  --table-selection: #D0D0D0;
+  --h1-color: #0B0909;
+  --h2-color: #0B0909;
+  --h3-color: #0B0909;
+  --h4-color: #0B0909;
+  --h5-color: #0B0909;
+  --h6-color: #0B0909;
+  --inline-title-color: #0B0909;
+  --code-background: #E5E5E5;
+  --code-normal: #181818;
+
+  --callout-info: #454545;
+  --callout-todo: #454545;
+  --callout-tip: #181818;
+  --callout-summary: #454545;
+  --callout-important: #0B0909;
+  --callout-example: #454545;
+  --callout-question: #454545;
+  --callout-quote: #454545;
+  --qs-signal-red: #454545;
+  --qs-signal-orange: #454545;
+  --qs-signal-yellow: #595959;
+  --qs-signal-green: #454545;
+  --qs-signal-cyan: #454545;
+  --qs-signal-blue: #454545;
+  --qs-signal-purple: #454545;
+  --qs-signal-pink: #454545;
+  --accent-h: 0.000000;
+  --accent-s: 10.000000%;
+  --accent-l: 3.921569%;
+  --color-accent-hsl: 0.000000, 10.000000%, 3.921569%;
+  --interactive-accent-hsl: 0.000000, 10.000000%, 3.921569%;
+}
+
+body.theme-light.qs-high-contrast {
+  --qs-rule: #888888;
+  --qs-rule-strong: #595959;
+}
+
 /* 10 · Narrow panes, touch, motion & print. Keep native folding/scrolling. */
 @media (max-height: 500px) {
   body:not(.is-mobile) .prompt {
@@ -1453,38 +1636,47 @@ body.is-mobile {
   /* Match palette specificity so printed colors reset in every variant. */
   body[class].theme-dark,
   body[class].theme-light {
-    --background-primary: #FFFFFF;
-    --background-primary-alt: #FFFFFF;
-    --background-secondary: #F4F1E9;
-    --text-normal: #30322F;
-    --text-muted: #606259;
-    --text-faint: #606259;
-    --qs-bg: #FFFFFF;
-    --qs-neutral: #FFFFFF;
-    --qs-panel: #F4F1E9;
-    --qs-border: #D5D0C5;
-    --qs-fg: #30322F;
-    --qs-muted: #606259;
-    --qs-secondary: #606259;
-    --qs-link: #5D5141;
-    --qs-signal-red: #9A443D;
-    --qs-signal-orange: #8A542C;
-    --qs-signal-yellow: #79651F;
-    --qs-signal-green: #4D6A45;
-    --qs-signal-cyan: #326B67;
-    --qs-signal-blue: #42668B;
-    --qs-signal-purple: #775986;
-    --qs-signal-pink: #8B536D;
-    --code-background: #F4F1E9;
-    --code-comment: #606259;
-    --code-function: #79651F;
-    --code-important: #8A542C;
-    --code-keyword: #775986;
-    --code-operator: #326B67;
-    --code-property: #42668B;
-    --code-string: #4D6A45;
-    --code-tag: #9A443D;
-    --code-value: #8A542C;
+    --background-primary: #F8F8F8;
+    --background-primary-alt: #F8F8F8;
+    --background-secondary: #E5E5E5;
+    --text-normal: #181818;
+    --text-muted: #595959;
+    --text-faint: #595959;
+    --h1-color: #0B0909;
+    --h2-color: #0B0909;
+    --h3-color: #0B0909;
+    --h4-color: #0B0909;
+    --h5-color: #0B0909;
+    --h6-color: #0B0909;
+    --inline-title-color: #0B0909;
+    --tag-color: #454545;
+    --qs-bg: #F8F8F8;
+    --qs-neutral: #F8F8F8;
+    --qs-panel: #E5E5E5;
+    --qs-border: #B0B0B0;
+    --qs-fg: #181818;
+    --qs-muted: #595959;
+    --qs-secondary: #595959;
+    --qs-link: #0B0909;
+    --qs-signal-red: #454545;
+    --qs-signal-orange: #454545;
+    --qs-signal-yellow: #454545;
+    --qs-signal-green: #454545;
+    --qs-signal-cyan: #454545;
+    --qs-signal-blue: #454545;
+    --qs-signal-purple: #454545;
+    --qs-signal-pink: #454545;
+    --code-background: #E5E5E5;
+    --code-normal: #181818;
+    --code-comment: #595959;
+    --code-function: #454545;
+    --code-important: #454545;
+    --code-keyword: #454545;
+    --code-operator: #454545;
+    --code-property: #454545;
+    --code-string: #454545;
+    --code-tag: #454545;
+    --code-value: #454545;
   }
 
   .markdown-rendered pre,

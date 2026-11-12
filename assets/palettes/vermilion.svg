@@ -1,39 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="212" viewBox="0 0 400 212" role="img" aria-labelledby="title description">
-  <title id="title">Vermilion palette</title>
-  <desc id="description">Vermilion, dark palette. Base #1C1919, Surface #231E1D, Ink #E9DEDA, Muted #A08E89, Accent #B65B4A, Deep #7D1F23.</desc>
-  <rect x="0.5" y="0.5" width="399" height="211" rx="3.5" fill="#1C1919" stroke="#40302D"/>
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#E9DEDA">
-    <text x="25" y="35" fill="#A08E89" font-size="10" letter-spacing="1.8">04 / DARK</text>
-    <text x="25" y="65" font-size="22" font-weight="500" letter-spacing="-0.5">Vermilion</text>
+  <title id="title">Vermillion Dark palette</title>
+  <desc id="description">Vermillion Dark, dark palette. Canvas #181818, Ink #F8F8F8, Clay #B65B4A, Action #A34138, Hover #9E2F26, Wine #7D1F23.</desc>
+  <rect x="0.5" y="0.5" width="399" height="211" rx="3.5" fill="#181818" stroke="#333333"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" fill="#F8F8F8">
+    <text x="25" y="35" fill="#AAAAAA" font-size="10" letter-spacing="1.8">02 / DARK</text>
+    <text x="25" y="65" font-size="22" font-weight="500" letter-spacing="-0.5">Vermillion Dark</text>
     <g transform="translate(25.0000 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#1C1919" stroke="#40302D"/>
-      <text y="163" font-size="10">Base</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#1C1919</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#181818" stroke="#333333"/>
+      <text y="163" font-size="10">Canvas</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#181818</text>
     </g>
     <g transform="translate(84.6667 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#231E1D" stroke="#40302D"/>
-      <text y="163" font-size="10">Surface</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#231E1D</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#F8F8F8" stroke="#333333"/>
+      <text y="163" font-size="10">Ink</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#F8F8F8</text>
     </g>
     <g transform="translate(144.3333 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#E9DEDA" stroke="#40302D"/>
-      <text y="163" font-size="10">Ink</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#E9DEDA</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#B65B4A" stroke="#333333"/>
+      <text y="163" font-size="10">Clay</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#B65B4A</text>
     </g>
     <g transform="translate(204.0000 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#A08E89" stroke="#40302D"/>
-      <text y="163" font-size="10">Muted</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#A08E89</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#A34138" stroke="#333333"/>
+      <text y="163" font-size="10">Action</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#A34138</text>
     </g>
     <g transform="translate(263.6667 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#B65B4A" stroke="#40302D"/>
-      <text y="163" font-size="10">Accent</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#B65B4A</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#9E2F26" stroke="#333333"/>
+      <text y="163" font-size="10">Hover</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#9E2F26</text>
     </g>
     <g transform="translate(323.3333 0)">
-      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#7D1F23" stroke="#40302D"/>
-      <text y="163" font-size="10">Deep</text>
-      <text y="178" fill="#A08E89" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#7D1F23</text>
+      <rect x="0.5" y="95.5" width="50.6667" height="49" rx="1.5" fill="#7D1F23" stroke="#333333"/>
+      <text y="163" font-size="10">Wine</text>
+      <text y="178" fill="#AAAAAA" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="9">#7D1F23</text>
     </g>
   </g>
 </svg>
